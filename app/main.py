@@ -1,3 +1,6 @@
+from zipapp import create_archive
+
+
 def get_human_age(cat_age: int, dog_age: int) -> list:
     """
     Convert cat and dog ages to human years.
@@ -20,4 +23,32 @@ def get_human_age(cat_age: int, dog_age: int) -> list:
     """
     # TODO: Implement this function
     # Write your tests first, then implement the logic
-    return [0, 0]
+    if cat_age < 0 or dog_age < 0:
+        raise ValueError("Age should be greater than 0")
+
+    cat_human_age = 0
+    dog_human_age = 0
+
+    if cat_age > 15:
+        cat_age -= 15
+        cat_human_age += 1
+
+        if cat_age > 9:
+            cat_age -= 9
+            cat_human_age += 1
+
+            if cat_age > 4:
+                cat_human_age += cat_age // 4
+
+    if dog_age > 15:
+        dog_age -= 15
+        dog_human_age += 1
+
+        if dog_age > 9:
+            dog_age -= 9
+            dog_human_age += 1
+
+            if dog_age > 4:
+                dog_human_age += dog_age // 5
+
+    return [cat_human_age, dog_human_age]
