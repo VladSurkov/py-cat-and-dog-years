@@ -20,7 +20,7 @@ def get_human_age(cat_age: int, dog_age: int) -> list:
     """
     # TODO: Implement this function
     # Write your tests first, then implement the logic
-    if isinstance(cat_age, float) or isinstance(dog_age, float):
+    if not isinstance(cat_age, int) or not isinstance(dog_age, int):
         raise TypeError("Age should be integer")
 
     if cat_age < 0 or dog_age < 0:
