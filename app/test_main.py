@@ -7,6 +7,18 @@ from app.main import get_human_age
     "cat_age,dog_age,expected_error",
     [
         pytest.param(
+            5.5,
+            15,
+            TypeError,
+            id="check if `cat_age` is float"
+        ),
+        pytest.param(
+            15,
+            5.5,
+            TypeError,
+            id="check if `dog_age` is float"
+        ),
+        pytest.param(
             "50",
             15,
             TypeError,
